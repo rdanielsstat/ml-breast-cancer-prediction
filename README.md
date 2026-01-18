@@ -43,7 +43,7 @@ This project uses the following technologies and tools:
 | ML framework          | PyTorch 2.9.1, torchvision 0.24.1 | Models trained and exported for prediction          |
 | Web Service           |                  FastAPI, uvicorn | Serves predictions via REST API                     |
 | Containerization      |                            Docker | Isolates environment for local and cloud deployment |
-| Cloud Deployment      |                [(Fly.io)](fly,io) | Scalable, production-ready deployment               |
+| Cloud Deployment      |                  [Fly.io](fly,io) | Scalable, production-ready deployment               |
 | Data Handling         |      PIL, numpy, python-multipart | Image processing and request handling               |
 | Dependency Management |                            Poetry | Handles Python dependencies from `pyproject.toml`   |
 
@@ -224,7 +224,7 @@ Visit the same local endpoints as above (`/docs` and `/health`) and test with th
 
 ### 7. Cloud deployment (Fly.io)
 
-This repository includes a preconfigured `fly.toml`. If you want to deploy yourself, you will need a [(Fly.io)](fly,io) account and **Fly CLI** installed:
+This repository includes a preconfigured `fly.toml`. If you want to deploy yourself, you will need a [Fly.io](fly,io) account and **Fly CLI** installed:
 
 ```bash
 flyctl deploy
