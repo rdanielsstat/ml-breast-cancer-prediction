@@ -10,7 +10,7 @@
 
 This is an end-to-end **computer vision** project that classifies breast ultrasound images as **benign** or **malignant** using **deep learning models implemented in PyTorch**, an industry-standard framework.
 
-The project covers the full **ML engineering lifecycle**: exploring and preprocessing data, training a convolutional neural network with variations in dropout, learning rate scheduling, and data augmentation, exporting models to scripts, containerizing the application with **Docker**, serving predictions via **FastAPI**, and deploying to the **cloud (Fly.io)**.
+The project covers the full **ML engineering lifecycle**: exploring and preprocessing data, training a convolutional neural network with variations in dropout, learning rate scheduling, and data augmentation, exporting models to scripts, containerizing the application with **Docker**, serving predictions via **FastAPI**, and deploying to the **cloud [(Fly.io)](fly,io)**.
 
 This repository demonstrates how machine learning models move from **research to production** in a modular, reproducible, and deployable setup.
 
@@ -37,15 +37,15 @@ This repository demonstrates how machine learning models move from **research to
 
 This project uses the following technologies and tools:
 
-| Layer                 | Technology / Tool | Notes |
-|-----------------------|-------------------------------------------|-----------------------------------------------------|
-| Programming           |                               Python 3.11 | Core language                                       |
-| ML Framework          | PyTorch 2.9.1+cpu, torchvision 0.24.1+cpu | Models trained and exported for inference           |
-| Web Service           |                          FastAPI, Uvicorn | Serves predictions via REST API                     |
-| Containerization      |                                    Docker | Isolates environment for local and cloud deployment |
-| Cloud Deployment      |                                    Fly.io | Scalable, production-ready deployment               |
-| Data Handling         |           Pillow, numpy, python-multipart | Image processing and request handling               |
-| Dependency Management |                                    Poetry | Handles Python dependencies from `pyproject.toml`   |
+| Layer                 | Technology / Tool                 | Notes                                               |
+|-----------------------|-----------------------------------|-----------------------------------------------------|
+| Programming           |                       Python 3.11 | Core language                                       |
+| ML framework          | PyTorch 2.9.1, torchvision 0.24.1 | Models trained and exported for prediction          |
+| Web Service           |                  FastAPI, uvicorn | Serves predictions via REST API                     |
+| Containerization      |                            Docker | Isolates environment for local and cloud deployment |
+| Cloud Deployment      |                [(Fly.io)](fly,io) | Scalable, production-ready deployment               |
+| Data Handling         |      PIL, numpy, python-multipart | Image processing and request handling               |
+| Dependency Management |                            Poetry | Handles Python dependencies from `pyproject.toml`   |
 
 ## Problem Description
 
@@ -103,14 +103,14 @@ All preprocessing and analysis steps are fully reproducible in the notebook, pro
 
 ## Model Training
 
-Models were developed and trained in `src/train.py`:
+Model architectures and variations were explored in `notebooks/ml-breast-cancer-prediction.ipynb`. The final selected model was trained and saved for predictions using `src/train.py`.
 
-- Tested variations on convolutional and fully connected models with different dropout, scheduling, and data augmentation strategies
-- Selected the final model based on performance and saved it as `final_model.pth` in `src/`
-- Models were trained on CPU for fully deterministic results; GPU acceleration can be enabled by commenting out the CPU-forcing code in the training script
-- `torch` with CPU-only configuration is used in deployment to reduce Docker image size (~2.05 GB).  
+- Explored variations of fully connected and convolutional models, experimenting with dropout, learning rate scheduling, and data augmentation strategies  
+- The final model was chosen based on performance and saved as `final_model.pth` in `src/`  
+- Models were trained on CPU for fully deterministic results; GPU acceleration can be enabled by commenting out the CPU-forcing code in the training script  
+- `torch` with CPU-only configuration is used in deployment to reduce Docker image size (~2.05 GB)  
 
-Training scripts are fully reproducible, allowing the model to be retrained or fine-tuned locally with the same results.
+All training scripts are fully reproducible, enabling the model to be retrained or fine-tuned locally with the same results.
 
 ## Project Structure
 
@@ -195,7 +195,7 @@ python tests/test_predict.py
 
 ### 5. Run FastAPI service locally
 
-Start the API using Uvicorn:
+Start the API using uvicorn:
 
 ```bash
 uvicorn src.predict:app --host 0.0.0.0 --port 8000 --reload
@@ -224,7 +224,7 @@ Visit the same local endpoints as above (`/docs` and `/health`) and test with th
 
 ### 7. Cloud deployment (Fly.io)
 
-This repository includes a preconfigured `fly.toml`. If you want to deploy yourself, you will need a Fly.io account and **Fly CLI** installed:
+This repository includes a preconfigured `fly.toml`. If you want to deploy yourself, you will need a [(Fly.io)](fly,io) account and **Fly CLI** installed:
 
 ```bash
 flyctl deploy
@@ -241,7 +241,7 @@ For both local and cloud deployments, the sample images in `tests/` can be used 
 
 - **Python** 3.11 (`>=3.11,<3.15`)  
 - **PyTorch** 2.9.1+cpu, **torchvision** 0.24.1+cpu  
-- **FastAPI**, **Uvicorn**  
+- **FastAPI**, **uvicorn**  
 - **Pillow**, **numpy**, **python-multipart**, **requests**  
 - **Poetry** for dependency management
 
@@ -262,9 +262,9 @@ All dependencies are defined in `pyproject.toml` and installed via Poetry, which
 ## Notes
 
 - All scripts, notebooks, and tests are **reproducible** and follow **ML project best practices**.  
-- The **Docker container** only includes the code and dependencies necessary for inference.  
+- The **Docker container** includes only the code and dependencies necessary for prediction; images, notebooks, and raw data are **excluded** to reduce image size.  
+- Only CPU versions of **PyTorch** and **TorchVision** were used in the container to further reduce the image size (~2.05 GB).  
 - Fly.io deployment has been tested and is **functional**.  
-- Images, notebooks, and raw data are **excluded from Docker builds** to reduce image size.  
 - Test images in `tests/` can be used for **both local and cloud testing**.
 
 ## Contact & citation
