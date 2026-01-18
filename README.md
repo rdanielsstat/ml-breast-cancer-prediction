@@ -1,6 +1,6 @@
 # Breast Cancer Detection with Deep Learning in PyTorch
 
-![Sample Images](tests/test_image1.png) ![Sample Images](tests/test_image2.png) ![Sample Images](tests/test_image3.png) ![Sample Images](tests/test_image4.png) ![Sample Images](tests/test_image5.png) ![Sample Images](tests/test_image6.png) ![Sample Images](tests/test_image7.png)
+![Sample Images](tests/test_image1.png) ![Sample Images](tests/test_image2.png) ![Sample Images](tests/test_image3.png) ![Sample Images](tests/test_image4.png) ![Sample Images](tests/test_image5.png)
 
 This is an end-to-end **computer vision** project that classifies breast ultrasound images as **benign** or **malignant** using **deep learning models implemented in PyTorch**, an industry-standard framework.
 
@@ -12,6 +12,7 @@ This repository demonstrates how machine learning models move from **research to
 
 ## Table of Contents
 
+- [Tech Stack](#tech-stack)
 - [Problem Description](#problem-description)
 - [Dataset](#dataset)
 - [Exploratory Data Analysis](#exploratory-data-analysis)
@@ -25,6 +26,20 @@ This repository demonstrates how machine learning models move from **research to
 - [References](#references)
 - [Notes](#notes)
 - [Contact & citation](#contact--citation)
+
+## Tech Stack
+
+This project uses the following technologies and tools:
+
+| Layer                 | Technology / Tool | Notes |
+|-----------------------|-------------------------------------------|-----------------------------------------------------|
+| Programming           |                               Python 3.11 | Core language                                       |
+| ML Framework          | PyTorch 2.9.1+cpu, torchvision 0.24.1+cpu | Models trained and exported for inference           |
+| Web Service           |                          FastAPI, Uvicorn | Serves predictions via REST API                     |
+| Containerization      |                                    Docker | Isolates environment for local and cloud deployment |
+| Cloud Deployment      |                                    Fly.io | Scalable, production-ready deployment               |
+| Data Handling         |           Pillow, numpy, python-multipart | Image processing and request handling               |
+| Dependency Management |                                    Poetry | Handles Python dependencies from `pyproject.toml`   |
 
 ## Problem Description
 
