@@ -1,0 +1,33 @@
+# macOS
+.DS_Store
+
+# Python local environment
+.venv
+
+# Python cache
+__pycache__/
+**/__pycache__/
+
+# Jupyter
+.ipynb_checkpoints/
+notebooks/
+
+# Raw data
+data/
+
+# Test scripts and images
+tests/
+
+# Training script
+train.py
+
+# Training artifacts (not needed in production)
+src/best_model.pth
+src/best_model_V*
+
+# Git
+.git/
+.gitignore
+
+# Logs
+*.log
