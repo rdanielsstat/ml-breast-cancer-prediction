@@ -240,7 +240,7 @@ For both local and cloud deployments, the sample images in `tests/` can be used 
 ## Dependencies
 
 - **Python** 3.11 (`>=3.11,<3.15`)  
-- **PyTorch** 2.9.1+cpu, **torchvision** 0.24.1+cpu  
+- **PyTorch** 2.9.1, **torchvision** 0.24.1
 - **FastAPI**, **uvicorn**  
 - **Pillow**, **numpy**, **python-multipart**, **requests**  
 - **Poetry** for dependency management
