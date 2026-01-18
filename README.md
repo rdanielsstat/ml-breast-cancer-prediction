@@ -95,20 +95,20 @@ The files are cached locally after the first download.
 EDA and preprocessing were performed in `notebooks/ml-breast-cancer-prediction.ipynb`:
 
 - Explored dataset statistics and class distribution
-- Visualized sample images and compared image brightness
-- Analyzed image features and pixel intensity distributions
-- Checking for missing or corrupted images
+- Visualized sample images and compared brightness across classes
+- Analyzed pixel intensity distributions and overall image characteristics
+- Checked for missing or corrupted images
 
 All preprocessing and analysis steps are fully reproducible in the notebook, providing a clear foundation for model training and evaluation.
 
 ## Model Training
 
-Model architectures and variations were explored in `notebooks/ml-breast-cancer-prediction.ipynb`. The final selected model was trained and saved for predictions using `src/train.py`.
+Model architectures and variations were explored in `notebooks/ml-breast-cancer-prediction.ipynb`. The final chosen model was trained and saved for predictions using `src/train.py`:
 
-- Explored variations of fully connected and convolutional models, experimenting with dropout, learning rate scheduling, and data augmentation strategies  
-- The final model was chosen based on performance and saved as `final_model.pth` in `src/`  
-- Models were trained on CPU for fully deterministic results; GPU acceleration can be enabled by commenting out the CPU-forcing code in the training script  
-- `torch` with CPU-only configuration is used in deployment to reduce Docker image size (~2.05 GB)  
+- Tested variations on convolutional and fully connected architectures with different dropout, scheduling, and data augmentation strategies
+- Selected the final model based on performance and saved it as `final_model.pth` in `src/`
+- Models were trained on CPU for fully deterministic results; GPU acceleration can be enabled by commenting out the CPU-forcing code in the training script
+- `torch` with CPU-only configuration is used in deployment to reduce Docker image size (~2.05 GB)
 
 All training scripts are fully reproducible, enabling the model to be retrained or fine-tuned locally with the same results.
 
@@ -181,13 +181,13 @@ poetry install
 
 ### 4. Test prediction locally
 
-Before deploying, you can test the prediction script:
+Before running the API, you can test the prediction script directly:
 
 ```bash
 python src/predict.py
 ```
 
-This script will load `final_model.pth` and perform predictions on test images. You can also run the included test script for automated checks:
+Run the automated test script to verify predictions on sample images:
 
 ```bash
 python tests/test_predict.py
@@ -224,18 +224,24 @@ Visit the same local endpoints as above (`/docs` and `/health`) and test with th
 
 ### 7. Cloud deployment (Fly.io)
 
-This repository includes a preconfigured `fly.toml`. If you want to deploy yourself, you will need a [Fly.io](https://fly.io) account and **Fly CLI** installed:
+The service is deployed to Fly.io with a preconfigured `fly.toml`. If you want to deploy the service yourself, you will need a [Fly.io](https://fly.io) account and the **Fly CLI** installed:
 
 ```bash
 flyctl deploy
 ```
 
-Test the current deployed service using the included `tests/test_fly_io.py` script or navigate to:
+To verify the current deployed service, you can use the included automated test script:
+
+```bash
+python tests/test_fly_io.py
+```
+
+Alternatively, explore the live service manually:
 
 - **API docs**: [https://breast-cancer-prediction.fly.dev/docs](https://breast-cancer-prediction.fly.dev/docs)  
 - **Health check**: [https://breast-cancer-prediction.fly.dev/health](https://breast-cancer-prediction.fly.dev/health)
 
-For both local and cloud deployments, the sample images in `tests/` can be used to test predictions.
+The sample images in `tests/` can be used to validate predictions on both the local and deployed services.
 
 ## Dependencies
 
