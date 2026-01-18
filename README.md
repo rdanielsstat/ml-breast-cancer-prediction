@@ -1,6 +1,12 @@
 # Breast Cancer Detection with Deep Learning in PyTorch
 
-![Sample Images](tests/test_image1.png) ![Sample Images](tests/test_image2.png) ![Sample Images](tests/test_image3.png) ![Sample Images](tests/test_image4.png) ![Sample Images](tests/test_image5.png)
+<p align="center">
+  <img src="tests/test_image1.png" width="120" />
+  <img src="tests/test_image2.png" width="120" />
+  <img src="tests/test_image3.png" width="120" />
+  <img src="tests/test_image4.png" width="120" />
+  <img src="tests/test_image5.png" width="120" />
+</p>
 
 This is an end-to-end **computer vision** project that classifies breast ultrasound images as **benign** or **malignant** using **deep learning models implemented in PyTorch**, an industry-standard framework.
 
