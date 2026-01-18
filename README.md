@@ -41,11 +41,11 @@ This project uses the following technologies and tools:
 |-----------------------|-----------------------------------|-----------------------------------------------------|
 | Programming           |                       Python 3.11 | Core language                                       |
 | ML framework          | PyTorch 2.9.1, torchvision 0.24.1 | Models trained and exported for prediction          |
-| Web Service           |                  FastAPI, uvicorn | Serves predictions via REST API                     |
+| Web service           |                  FastAPI, uvicorn | Serves predictions via REST API                     |
 | Containerization      |                            Docker | Isolates environment for local and cloud deployment |
-| Cloud Deployment      |          [Fly.io](https://fly.io) | Scalable, production-ready deployment               |
-| Data Handling         |      PIL, numpy, python-multipart | Image processing and request handling               |
-| Dependency Management |                            Poetry | Handles Python dependencies from `pyproject.toml`   |
+| Cloud deployment      |          [Fly.io](https://fly.io) | Scalable, production-ready deployment               |
+| Data handling         |      PIL, numpy, python-multipart | Image processing and request handling               |
+| Dependency management |                            Poetry | Handles Python dependencies from `pyproject.toml`   |
 
 ## Problem Description
 
