@@ -112,6 +112,23 @@ Model architectures and variations were explored in `notebooks/ml-breast-cancer-
 
 All training scripts are fully reproducible, enabling the model to be retrained or fine-tuned locally with the same results.
 
+### Final model performance
+
+The final chosen model achieved the following metrics on the held-out test set:
+
+| Metric    | Value  |
+|-----------|--------|
+| Accuracy  | 0.8910 |
+| Precision | 0.8727 |
+| Recall    | 0.8427 |
+| F1        | 0.8559 |
+
+**Notes:**  
+- All model training, tuning, and hyperparameter exploration were completed **before** evaluating on the test data, ensuring there was no data leakage.  
+- All tested models showed overfitting to the training and validation data, which is likely due to the small sample size.  
+- F1 was used as the primary metric for model selection because it balances sensitivity (recall) and specificity (precision), which is particularly important in medical imaging applications.  
+- Accuracy, precision, and recall are reported for context to provide a complete view of model performance.
+
 ## Project Structure
 
 ```text
