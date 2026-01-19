@@ -23,6 +23,7 @@ This repository demonstrates how machine learning models move from **research to
 - [Dataset](#dataset)
 - [Exploratory Data Analysis](#exploratory-data-analysis)
 - [Model Training](#model-training)
+- [Limitations and Future Work](#limitations-and-future-work)
 - [Project Structure](#project-structure)
 - [Usage](#usage)
   - [Run locally](#4-test-prediction-locally)
@@ -128,6 +129,20 @@ The final chosen model achieved the following metrics on the held-out test set:
 - All tested models showed overfitting to the training and validation data, which is likely due to the small sample size.  
 - F1 was used as the primary metric for model selection because it balances sensitivity (recall) and specificity (precision), which is particularly important in medical imaging applications.  
 - Accuracy, precision, and recall are reported for context to provide a complete view of model performance.
+
+## Limitations and Future Work
+
+While this project demonstrates a complete workflow for breast cancer classification from ultrasound images, several limitations and opportunities for improvement exist:
+
+- Dataset size: The dataset is relatively small, which limits generalization. The high training accuracy and somewhat lower test metrics suggest that the models may overfit despite dropout and other regularization strategies. Larger datasets would improve confidence in model performance.
+- Validation strategy: Only a single train/validation/test split was used. While no leakage was ensured by performing all model training and hyperparameter tuning before evaluating on the test set, using k-fold cross-validation could provide a more robust estimate of performance and reduce variability from a single split.
+- Early stopping / monitoring: The models were trained for a fixed 30 epochs, and the model with the highest validation F1 was saved. More sophisticated early stopping or patience-based stopping could reduce unnecessary computation while preventing overfitting.
+- Learning rate scheduling: A ReduceLROnPlateau scheduler was included for some models, but only basic settings were used. More extensive experimentation with learning rate schedules or adaptive optimizers could potentially improve convergence and final performance.
+- Additional regularization / augmentation: While dropout and basic data augmentation were explored, other techniques like weight decay tuning, batch normalization, or advanced augmentation strategies (random rotations, elastic transforms, or mixup) could help improve robustness, especially in medical imaging tasks.
+- Hyperparameter search: Only a small set of variations were tested. In a production setting, a more comprehensive grid search or Bayesian optimization over architecture and regularization parameters would help identify optimal configurations.
+- Interpretability and explainability: For clinical applications, further work could include model interpretability techniques, such as Grad-CAM or saliency maps, to ensure the model focuses on relevant regions in the images.
+
+Overall, this project demonstrates a reproducible workflow and serves as a proof-of-concept. Future iterations could extend these ideas for more rigorous experimentation and clinical deployment considerations.
 
 ## Project Structure
 
