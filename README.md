@@ -174,7 +174,7 @@ curl -sSL https://install.python-poetry.org | python3 -
 Then install project dependencies:
 
 ```bash
-poetry install
+poetry install --extras "train"
 ```
 
 > This will install all packages defined in `pyproject.toml` for the main project.
@@ -254,7 +254,7 @@ The sample images in `tests/` can be used to validate predictions on both the lo
 Install dependencies with:
 
 ```bash
-poetry install
+poetry install --extras "train"
 ```
 
 All dependencies are defined in `pyproject.toml` and installed via Poetry, which ensures consistent versions.
