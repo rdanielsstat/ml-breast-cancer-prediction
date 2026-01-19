@@ -113,7 +113,7 @@ Model architectures and variations were explored in `notebooks/ml-breast-cancer-
 
 All training scripts are fully reproducible, enabling the model to be retrained or fine-tuned locally with the same results.
 
-### Final model performance
+### Model evaluation
 
 The final chosen model achieved the following metrics on the held-out test set:
 
