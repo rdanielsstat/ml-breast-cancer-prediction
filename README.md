@@ -116,12 +116,12 @@ All training scripts are fully reproducible, enabling the model to be retrained 
 
 The final chosen model achieved the following metrics on the held-out test set:
 
-| Metric    | Value  |
-|-----------|--------|
-| Accuracy  | 0.8910 |
-| Precision | 0.8727 |
-| Recall    | 0.8427 |
-| F1        | 0.8559 |
+| Metric    | Value |
+|-----------|-------|
+| Accuracy  |  0.89 |
+| Precision |  0.87 |
+| Recall    |  0.84 |
+| F1        |  0.86 |
 
 **Notes:**  
 - All model training, tuning, and hyperparameter exploration were completed **before** evaluating on the test data, ensuring there was no data leakage.  
